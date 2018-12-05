@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <form method="post">
+        <p>who</p>
+        <input type="text" name="who">
+        <p>game</p>
+        <input type="text" name="game">
+        <p>left score</p>
+        <input type="text" name="left_score">
+        <p>right score</p>
+        <input type="text" name="right_score">
+        <p>
+            <button type="submit">Bet!</button>
+        </p>
+    </form>
+    {% for bet in bets %}
+        {{ dump(bet) }}
+    {% endfor %}
+    <hr />
+    <form method="post" action="{{ path('report') }}">
+        <p>game</p>
+        <input type="text" name="game">
+        <p>left score</p>
+        <input type="text" name="left_score">
+        <p>right score</p>
+        <input type="text" name="right_score">
+        <p>
+            <button type="submit">Bet!</button>
+        </p>
+    </form>
+{% endblock %}
