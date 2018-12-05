@@ -20,6 +20,4 @@ class Won implements GameResultMessage
     {
         $this->bet = $bet;
     }
-
-
 }

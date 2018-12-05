@@ -50,9 +50,9 @@ class ReportResultHandler implements MessageHandlerInterface
                 $bet->getLeftScore() === $finalResultBet->getLeftScore()
                 && $bet->getRightScore() === $finalResultBet->getRightScore()
             ) {
-                $this->eventBus->dispatch(new Won($finalResultBet));
+                $this->eventBus->dispatch(new Won($bet));
             } else {
-                $this->eventBus->dispatch(new Lost($finalResultBet));
+                $this->eventBus->dispatch(new Lost($bet));
             }
         }
     }
