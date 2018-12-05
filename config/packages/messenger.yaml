@@ -1,10 +1,15 @@
 framework:
     messenger:
         buses:
-          command_bus: ~
+          command_bus:
+            middleware:
+              - 'App\Middleware\AuditMiddleware'
+              - 'App\Middleware\ConfirmLastMiddleware'
+
           this_is_the_name_that_we_have_defined_bus:
             middleware:
               - 'App\Middleware\AuditMiddleware'
+              - 'App\Middleware\ConfirmLastMiddleware'
             default_middleware: 'allow_no_handlers'
 
 
@@ -15,3 +20,6 @@ framework:
         routing:
             # Route your messages to the transports
              'App\Message\Lost': amqp
+
+            # Async Message , and just implement in your handlers
+#             'App\Message\AsynchronousMessage': amqp

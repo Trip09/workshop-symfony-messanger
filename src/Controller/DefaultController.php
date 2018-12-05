@@ -62,7 +62,7 @@ class DefaultController
                 )
             )
         );
-
+die('Sent');
         return new RedirectResponse('/');
     }
 }
